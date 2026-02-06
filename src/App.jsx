@@ -13,6 +13,7 @@ export default function App() {
   const [rawContent, setRawContent] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedCaption, setGeneratedCaption] = useState('');
+  const [youtubeData, setYoutubeData] = useState({ title: '', description: '', tags: '' });
   const [language, setLanguage] = useState('bn');
 
   // State: Editor Layout
@@ -76,6 +77,11 @@ export default function App() {
         tag: result.tag || prev.tag,
       }));
       setGeneratedCaption(result.caption);
+      setYoutubeData({
+        title: result.youtubeTitle || '',
+        description: result.youtubeDescription || '',
+        tags: result.youtubeTags || ''
+      });
 
       if (language === 'bn') {
         setStyles(prev => ({
@@ -212,6 +218,8 @@ export default function App() {
           handleImageUpload={handleImageUpload}
           generatedCaption={generatedCaption}
           setGeneratedCaption={setGeneratedCaption}
+          youtubeData={youtubeData}
+          setYoutubeData={setYoutubeData}
           addExtraElement={addExtraElement}
           updateExtraElement={updateExtraElement}
           removeExtraElement={removeExtraElement}

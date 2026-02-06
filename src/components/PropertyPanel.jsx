@@ -22,6 +22,8 @@ export default function PropertyPanel({
     handleImageUpload,
     generatedCaption,
     setGeneratedCaption,
+    youtubeData,
+    setYoutubeData,
     addExtraElement,
     updateExtraElement,
     removeExtraElement
@@ -143,7 +145,89 @@ export default function PropertyPanel({
                                             </div>
                                         </div>
                                     )}
+
+                                    {youtubeData && youtubeData.title && (
+                                        <div className="space-y-4 pt-4 border-t border-white/5 animate-premium">
+                                            <div className="flex items-center gap-2 text-white/50 mb-1">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                                                <span className="text-[10px] font-black uppercase tracking-widest">YouTube Metadata</span>
+                                            </div>
+
+                                            {/* YouTube Title */}
+                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5 relative group/yt">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">YouTube Title ({youtubeData.title.length}/70)</span>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(youtubeData.title);
+                                                            const btn = document.activeElement;
+                                                            const originalHTML = btn.innerHTML;
+                                                            btn.innerHTML = 'Copied!';
+                                                            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+                                                        }}
+                                                        className="text-accent hover:text-white transition-colors"
+                                                    >
+                                                        <Copy size={10} />
+                                                    </button>
+                                                </div>
+                                                <textarea
+                                                    value={youtubeData.title}
+                                                    onChange={(e) => setYoutubeData({ ...youtubeData, title: e.target.value })}
+                                                    className="w-full bg-transparent border-none text-[11px] font-bold text-white/80 h-16 resize-none focus:outline-none scrollbar-premium"
+                                                />
+                                            </div>
+
+                                            {/* YouTube Description */}
+                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5 relative group/yt">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">YouTube Description</span>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(youtubeData.description);
+                                                            const btn = document.activeElement;
+                                                            const originalHTML = btn.innerHTML;
+                                                            btn.innerHTML = 'Copied!';
+                                                            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+                                                        }}
+                                                        className="text-accent hover:text-white transition-colors"
+                                                    >
+                                                        <Copy size={10} />
+                                                    </button>
+                                                </div>
+                                                <textarea
+                                                    value={youtubeData.description}
+                                                    onChange={(e) => setYoutubeData({ ...youtubeData, description: e.target.value })}
+                                                    className="w-full bg-transparent border-none text-[10px] text-white/60 h-24 resize-none focus:outline-none scrollbar-premium"
+                                                />
+                                            </div>
+
+                                            {/* YouTube Tags */}
+                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5 relative group/yt">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">Keywords/Tags</span>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(youtubeData.tags);
+                                                            const btn = document.activeElement;
+                                                            const originalHTML = btn.innerHTML;
+                                                            btn.innerHTML = 'Copied!';
+                                                            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+                                                        }}
+                                                        className="text-accent hover:text-white transition-colors"
+                                                    >
+                                                        <Copy size={10} />
+                                                    </button>
+                                                </div>
+                                                <textarea
+                                                    value={youtubeData.tags}
+                                                    onChange={(e) => setYoutubeData({ ...youtubeData, tags: e.target.value })}
+                                                    className="w-full bg-transparent border-none text-[10px] text-accent/60 h-20 resize-none focus:outline-none scrollbar-premium"
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
+
                             </div>
                         </section>
 
