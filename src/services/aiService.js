@@ -31,7 +31,7 @@ export const generateTextContent = async (apiKey, content, language = 'bn') => {
     4. Facebook Caption: Generate a professional and formal Facebook caption for this news following standard news media guidelines. DO NOT use any emojis. Include a formal opening/hook, the core context, and 3-5 relevant hashtags. End with "বিস্তারিত জানতে কমেন্ট চেক করুন।".
     5. YouTube Title: Must be 60-70 characters long. Use an EMOTIONAL hook or conflict-driven question to trigger curiosity. ${language === 'bn' ? 'Use a hybrid of BENGALI and English trigger keywords.' : ''}
     6. YouTube Description: Use the "District Equation" (focus on specific local/regional politics/context if applicable). Include conflict-driven questions and keywords for diaspora focus.
-    7. YouTube Tags: Generate a list of relevant tags. ALWAYS include: `wave24BD`, `News Today`, `Political News`, `Bangladesh`, `Bangla Live News`, `Latest Bangla Update`, `Latest`, `Today`.
+    7. YouTube Tags: Generate a list of relevant tags. ALWAYS include: \`wave24BD\`, \`News Today\`, \`Political News\`, \`Bangladesh\`, \`Bangla Live News\`, \`Latest Bangla Update\`, \`Latest\`, \`Today\`.
     
     All generated text must be in ${language === 'bn' ? 'BENGALI (Bangla) script' : 'ENGLISH'}.
     
