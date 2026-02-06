@@ -153,13 +153,13 @@ export default function PropertyPanel({
                                                 <span className="text-[10px] font-black uppercase tracking-widest">YouTube Metadata</span>
                                             </div>
 
-                                            {/* YouTube Title */}
+                                            {/* YouTube Tags */}
                                             <div className="p-4 bg-black/40 rounded-2xl border border-white/5 relative group/yt">
                                                 <div className="flex items-center justify-between mb-2">
-                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">YouTube Title ({youtubeData.title.length}/70)</span>
+                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">Keywords/Tags</span>
                                                     <button
                                                         onClick={() => {
-                                                            navigator.clipboard.writeText(youtubeData.title);
+                                                            navigator.clipboard.writeText(youtubeData.tags || '');
                                                             const btn = document.activeElement;
                                                             const originalHTML = btn.innerHTML;
                                                             btn.innerHTML = 'Copied!';
@@ -171,7 +171,31 @@ export default function PropertyPanel({
                                                     </button>
                                                 </div>
                                                 <textarea
-                                                    value={youtubeData.title}
+                                                    value={youtubeData.tags || ''}
+                                                    onChange={(e) => setYoutubeData({ ...youtubeData, tags: e.target.value })}
+                                                    className="w-full bg-transparent border-none text-[10px] text-accent/60 h-20 resize-none focus:outline-none scrollbar-premium"
+                                                />
+                                            </div>
+
+                                            {/* YouTube Title */}
+                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5 relative group/yt">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">YouTube Title ({youtubeData.title?.length || 0}/70)</span>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(youtubeData.title || '');
+                                                            const btn = document.activeElement;
+                                                            const originalHTML = btn.innerHTML;
+                                                            btn.innerHTML = 'Copied!';
+                                                            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+                                                        }}
+                                                        className="text-accent hover:text-white transition-colors"
+                                                    >
+                                                        <Copy size={10} />
+                                                    </button>
+                                                </div>
+                                                <textarea
+                                                    value={youtubeData.title || ''}
                                                     onChange={(e) => setYoutubeData({ ...youtubeData, title: e.target.value })}
                                                     className="w-full bg-transparent border-none text-[11px] font-bold text-white/80 h-16 resize-none focus:outline-none scrollbar-premium"
                                                 />
@@ -183,7 +207,7 @@ export default function PropertyPanel({
                                                     <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">YouTube Description</span>
                                                     <button
                                                         onClick={() => {
-                                                            navigator.clipboard.writeText(youtubeData.description);
+                                                            navigator.clipboard.writeText(youtubeData.description || '');
                                                             const btn = document.activeElement;
                                                             const originalHTML = btn.innerHTML;
                                                             btn.innerHTML = 'Copied!';
@@ -195,33 +219,9 @@ export default function PropertyPanel({
                                                     </button>
                                                 </div>
                                                 <textarea
-                                                    value={youtubeData.description}
+                                                    value={youtubeData.description || ''}
                                                     onChange={(e) => setYoutubeData({ ...youtubeData, description: e.target.value })}
                                                     className="w-full bg-transparent border-none text-[10px] text-white/60 h-24 resize-none focus:outline-none scrollbar-premium"
-                                                />
-                                            </div>
-
-                                            {/* YouTube Tags */}
-                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5 relative group/yt">
-                                                <div className="flex items-center justify-between mb-2">
-                                                    <span className="text-[9px] font-bold text-gray-500 uppercase tracking-tighter">Keywords/Tags</span>
-                                                    <button
-                                                        onClick={() => {
-                                                            navigator.clipboard.writeText(youtubeData.tags);
-                                                            const btn = document.activeElement;
-                                                            const originalHTML = btn.innerHTML;
-                                                            btn.innerHTML = 'Copied!';
-                                                            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
-                                                        }}
-                                                        className="text-accent hover:text-white transition-colors"
-                                                    >
-                                                        <Copy size={10} />
-                                                    </button>
-                                                </div>
-                                                <textarea
-                                                    value={youtubeData.tags}
-                                                    onChange={(e) => setYoutubeData({ ...youtubeData, tags: e.target.value })}
-                                                    className="w-full bg-transparent border-none text-[10px] text-accent/60 h-20 resize-none focus:outline-none scrollbar-premium"
                                                 />
                                             </div>
                                         </div>
