@@ -1,12 +1,14 @@
 import React from 'react';
 
-const DhakaStreamTemplate = ({ headline, image, logo, description, source, date, customizations }) => {
+const DhakaStreamTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+    const isSquare = aspectRatio === '1:1';
+
     return (
         <div
             id="photocard"
             style={{
-                width: '820px',
-                height: '1080px',
+                width: '100%',
+                height: '100%',
                 position: 'relative',
                 fontFamily: customizations?.fontFamily || 'Montserrat, sans-serif',
                 overflow: 'hidden',
@@ -76,7 +78,7 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
             <div
                 style={{
                     position: 'absolute',
-                    top: '160px',
+                    top: isSquare ? '130px' : '160px',
                     left: '40px',
                     right: '40px',
                     zIndex: 2,
@@ -85,7 +87,7 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
             >
                 <h1
                     style={{
-                        fontSize: customizations?.fontSize || '60px',
+                        fontSize: customizations?.fontSize || (isSquare ? '50px' : '60px'),
                         fontWeight: customizations?.fontWeight || 'bold',
                         color: '#fff',
                         margin: 0,
@@ -112,7 +114,7 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
             <div
                 style={{
                     position: 'absolute',
-                    top: '380px',
+                    top: isSquare ? '340px' : '380px',
                     left: '0',
                     right: '0',
                     textAlign: 'center',
@@ -122,8 +124,8 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                     <div
                         style={{
-                            width: '28px',
-                            height: '28px',
+                            width: isSquare ? '22px' : '28px',
+                            height: isSquare ? '22px' : '28px',
                             border: '2px solid #fff',
                             borderRadius: '50%',
                             display: 'flex',
@@ -131,11 +133,11 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
                             justifyContent: 'center',
                         }}
                     >
-                        <span style={{ color: '#fff', fontSize: '18px', fontWeight: 'bold' }}>🔗</span>
+                        <span style={{ color: '#fff', fontSize: isSquare ? '14px' : '18px', fontWeight: 'bold' }}>🔗</span>
                     </div>
                     <p
                         style={{
-                            fontSize: '20px',
+                            fontSize: isSquare ? '16px' : '20px',
                             fontWeight: 'bold',
                             color: '#fff',
                             margin: 0,
@@ -157,7 +159,7 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
                         bottom: '80px',
                         left: '0',
                         right: '0',
-                        height: '500px',
+                        height: isSquare ? '380px' : '500px',
                         overflow: 'hidden',
                     }}
                 >
@@ -191,7 +193,7 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
             >
                 <span
                     style={{
-                        fontSize: '20px',
+                        fontSize: isSquare ? '16px' : '20px',
                         color: '#fff',
                         fontFamily: 'Noto Serif Bengali, serif',
                     }}
@@ -201,7 +203,7 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span
                         style={{
-                            fontSize: '17px',
+                            fontSize: isSquare ? '14px' : '17px',
                             fontWeight: 'bold',
                             color: '#fff',
                         }}
@@ -213,14 +215,14 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
                             <div
                                 key={i}
                                 style={{
-                                    width: '24px',
-                                    height: '24px',
+                                    width: isSquare ? '20px' : '24px',
+                                    height: isSquare ? '20px' : '24px',
                                     backgroundColor: '#fff',
                                     borderRadius: '50%',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    fontSize: '13px',
+                                    fontSize: isSquare ? '11px' : '13px',
                                     fontWeight: 'bold',
                                     color: '#4a4a38',
                                 }}

@@ -6,8 +6,8 @@ import ProthomaloTemplate from './ProthomaloTemplate';
 import NewAgeTemplate from './NewAgeTemplate';
 import TBSTemplate from './TBSTemplate';
 
-const TemplateRenderer = ({ templateId, bgImage, logo, cardData, styles, language, ...rest }) => {
-    // Map numeric IDs to templates
+const TemplateRenderer = ({ templateId, aspectRatio, bgImage, logo, cardData, styles, language, ...rest }) => {
+    // ... items ...
     const templates = [
         BanglaStreamTemplate,  // 0
         DhakaStreamTemplate,   // 1
@@ -35,6 +35,7 @@ const TemplateRenderer = ({ templateId, bgImage, logo, cardData, styles, languag
         description: cardData.description,
         source: cardData.tag,
         date: cardData.date,
+        aspectRatio: aspectRatio,
         customizations: {
             fontSize: styles.titleSize + 'px',
             fontWeight: styles.fontWeight,

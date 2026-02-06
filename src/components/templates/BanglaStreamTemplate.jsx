@@ -1,12 +1,14 @@
 import React from 'react';
 
-const BanglaStreamTemplate = ({ headline, image, logo, description, source, date, customizations }) => {
+const BanglaStreamTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+    const isSquare = aspectRatio === '1:1';
+
     return (
         <div
             id="photocard"
             style={{
-                width: '820px',
-                height: '1080px',
+                width: '100%',
+                height: '100%',
                 position: 'relative',
                 fontFamily: customizations?.fontFamily || 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
@@ -75,7 +77,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
             <div
                 style={{
                     position: 'absolute',
-                    top: '160px',
+                    top: isSquare ? '130px' : '160px',
                     left: '40px',
                     right: '40px',
                     zIndex: 2,
@@ -84,7 +86,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
             >
                 <h1
                     style={{
-                        fontSize: customizations?.fontSize || '64px',
+                        fontSize: customizations?.fontSize || (isSquare ? '52px' : '64px'),
                         fontWeight: customizations?.fontWeight || 'bold',
                         color: '#fff',
                         margin: 0,
@@ -110,7 +112,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
             <div
                 style={{
                     position: 'absolute',
-                    top: '460px',
+                    top: isSquare ? '380px' : '460px',
                     left: '0',
                     right: '0',
                     textAlign: 'center',
@@ -119,7 +121,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
             >
                 <p
                     style={{
-                        fontSize: '22px',
+                        fontSize: isSquare ? '18px' : '22px',
                         fontWeight: 'bold',
                         color: '#fff',
                         margin: 0,
@@ -142,7 +144,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
                         bottom: '80px',
                         left: '0',
                         right: '0',
-                        height: '460px',
+                        height: isSquare ? '320px' : '460px',
                         overflow: 'hidden',
                     }}
                 >
@@ -176,7 +178,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
             >
                 <span
                     style={{
-                        fontSize: '26px',
+                        fontSize: isSquare ? '20px' : '26px',
                         fontWeight: 'bold',
                         color: '#fff',
                         margin: 0,
@@ -188,7 +190,7 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span
                         style={{
-                            fontSize: '18px',
+                            fontSize: isSquare ? '14px' : '18px',
                             fontWeight: 'bold',
                             color: '#fff',
                         }}
@@ -200,14 +202,14 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
                             <div
                                 key={i}
                                 style={{
-                                    width: '24px',
-                                    height: '24px',
+                                    width: isSquare ? '20px' : '24px',
+                                    height: isSquare ? '20px' : '24px',
                                     backgroundColor: '#fff',
                                     borderRadius: '50%',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    fontSize: '14px',
+                                    fontSize: isSquare ? '11px' : '14px',
                                     fontWeight: 'bold',
                                     color: '#2c4a52',
                                 }}

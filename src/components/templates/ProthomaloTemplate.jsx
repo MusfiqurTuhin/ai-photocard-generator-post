@@ -1,16 +1,20 @@
 import React from 'react';
 
-const ProthomaloTemplate = ({ headline, image, logo, description, source, date, customizations }) => {
+const ProthomaloTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+    const isSquare = aspectRatio === '1:1';
+
     return (
         <div
             id="photocard"
             style={{
-                width: '820px',
-                height: '820px',
+                width: '100%',
+                height: '100%',
                 position: 'relative',
                 fontFamily: customizations?.fontFamily || 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
                 backgroundColor: '#f5f0e8',
+                display: 'flex',
+                flexDirection: 'column',
             }}
         >
             {/* Top Image Section */}
@@ -18,7 +22,7 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                 style={{
                     position: 'relative',
                     width: '100%',
-                    height: '410px',
+                    flex: 1,
                     overflow: 'hidden',
                 }}
             >
@@ -42,7 +46,7 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                         bottom: '15px',
                         left: '20px',
                         color: '#fff',
-                        fontSize: '28px',
+                        fontSize: isSquare ? '22px' : '28px',
                         fontWeight: 'bold',
                         textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
                         fontFamily: 'Noto Serif Bengali, serif',
@@ -55,22 +59,20 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
             {/* Bottom Section - Beige Background */}
             <div
                 style={{
-                    position: 'absolute',
-                    bottom: '0',
-                    left: '0',
-                    right: '0',
-                    height: '410px',
+                    width: '100%',
+                    flex: 1,
                     backgroundColor: '#f5f0e8',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '40px 50px',
+                    padding: isSquare ? '20px 40px' : '40px 50px',
+                    position: 'relative',
                 }}
             >
                 <div
                     style={{
-                        marginBottom: '20px',
+                        marginBottom: isSquare ? '10px' : '20px',
                     }}
                 >
                     <img
@@ -78,8 +80,8 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                         alt="Prothom Alo Logo"
                         crossOrigin="anonymous"
                         style={{
-                            height: '65px',
-                            width: '200px',
+                            height: isSquare ? '50px' : '65px',
+                            width: isSquare ? '150px' : '200px',
                             objectFit: 'contain',
                         }}
                     />
@@ -88,9 +90,9 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                 {/* Column Label */}
                 <p
                     style={{
-                        fontSize: '22px',
+                        fontSize: isSquare ? '18px' : '22px',
                         color: '#333',
-                        margin: '0 0 15px 0',
+                        margin: `0 0 ${isSquare ? '10px' : '15px'} 0`,
                         fontFamily: 'Noto Serif Bengali, serif',
                     }}
                 >
@@ -100,7 +102,7 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                 {/* Headline */}
                 <h1
                     style={{
-                        fontSize: customizations?.fontSize || '42px',
+                        fontSize: customizations?.fontSize || (isSquare ? '36px' : '42px'),
                         fontWeight: customizations?.fontWeight || 'bold',
                         color: '#d32f2f',
                         margin: 0,
@@ -116,9 +118,9 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                 <div
                     style={{
                         position: 'absolute',
-                        bottom: '25px',
-                        left: '50px',
-                        right: '50px',
+                        bottom: isSquare ? '15px' : '25px',
+                        left: isSquare ? '30px' : '50px',
+                        right: isSquare ? '30px' : '50px',
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
@@ -126,7 +128,7 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                 >
                     <span
                         style={{
-                            fontSize: '18px',
+                            fontSize: isSquare ? '14px' : '18px',
                             color: '#666',
                             fontFamily: 'Noto Serif Bengali, serif',
                         }}
@@ -136,15 +138,15 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <div
                             style={{
-                                width: '20px',
-                                height: '20px',
+                                width: isSquare ? '14px' : '20px',
+                                height: isSquare ? '14px' : '20px',
                                 backgroundColor: '#999',
                                 borderRadius: '2px',
                             }}
                         />
                         <span
                             style={{
-                                fontSize: '18px',
+                                fontSize: isSquare ? '14px' : '18px',
                                 fontWeight: '600',
                                 color: '#333',
                                 fontFamily: 'sans-serif',

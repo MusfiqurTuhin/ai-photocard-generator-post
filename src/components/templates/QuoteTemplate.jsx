@@ -1,6 +1,8 @@
 import React from 'react';
 
-const QuoteTemplate = ({ headline, image, logo, description, source, date, customizations }) => {
+const QuoteTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+    const isSquare = aspectRatio === '1:1';
+
     // Split source into name and title if it contains '|'
     const [name, title] = source ? source.split('|').map(s => s.trim()) : ['ড. জাহেদ উর রহমান', 'রাজনীতি বিশেষক'];
 
@@ -8,8 +10,8 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
         <div
             id="photocard"
             style={{
-                width: '820px',
-                height: '820px',
+                width: '100%',
+                height: '100%',
                 position: 'relative',
                 fontFamily: 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
@@ -23,7 +25,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                     top: '20px',
                     left: '20px',
                     display: 'flex',
-                    gap: '15px',
+                    gap: isSquare ? '8px' : '15px',
                     alignItems: 'center',
                     zIndex: 2,
                 }}
@@ -34,12 +36,12 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                     { icon: 'f', text: '/thepost360' },
                 ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <span style={{ color: '#c13832', fontSize: '16px', fontWeight: 'bold' }}>{item.icon}</span>
-                        <span style={{ color: '#999', fontSize: '14px' }}>{item.text}</span>
+                        <span style={{ color: '#c13832', fontSize: isSquare ? '12px' : '16px', fontWeight: 'bold' }}>{item.icon}</span>
+                        <span style={{ color: '#999', fontSize: isSquare ? '11px' : '14px' }}>{item.text}</span>
                         {i < 2 && <span style={{ color: '#ccc', margin: '0 5px' }}>●</span>}
                     </div>
                 ))}
-                <span style={{ color: '#999', fontSize: '14px' }}>/{date || '06.02.26'}</span>
+                <span style={{ color: '#999', fontSize: isSquare ? '11px' : '14px' }}>/{date || '06.02.26'}</span>
             </div>
 
             {/* Logo - Top Right */}
@@ -56,7 +58,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                     alt="The Post Logo"
                     crossOrigin="anonymous"
                     style={{
-                        height: '60px',
+                        height: isSquare ? '45px' : '60px',
                         objectFit: 'contain',
                     }}
                 />
@@ -66,17 +68,17 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
             <div
                 style={{
                     position: 'absolute',
-                    top: '100px',
+                    top: isSquare ? '80px' : '100px',
                     left: '0',
                     right: '0',
-                    bottom: '270px',
+                    bottom: isSquare ? '220px' : '270px',
                     display: 'flex',
                 }}
             >
                 {/* Left Side - Person Image */}
                 <div
                     style={{
-                        width: '280px',
+                        width: isSquare ? '220px' : '280px',
                         height: '100%',
                         overflow: 'hidden',
                         position: 'relative',
@@ -114,7 +116,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                 <div
                     style={{
                         flex: 1,
-                        padding: '20px',
+                        padding: isSquare ? '10px 15px' : '20px',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'flex-start',
@@ -123,7 +125,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                     {/* Quote Mark */}
                     <div
                         style={{
-                            fontSize: '120px',
+                            fontSize: isSquare ? '80px' : '120px',
                             lineHeight: 0.5,
                             color: '#d0d0c0',
                             fontFamily: 'Georgia, serif',
@@ -137,13 +139,13 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                     <div
                         style={{
                             backgroundColor: '#1a5c3a',
-                            padding: '25px 20px',
+                            padding: isSquare ? '15px 15px' : '25px 20px',
                             marginTop: '-20px',
                         }}
                     >
                         <p
                             style={{
-                                fontSize: customizations?.fontSize || '32px',
+                                fontSize: customizations?.fontSize || (isSquare ? '24px' : '32px'),
                                 fontWeight: 'bold',
                                 color: '#fff',
                                 margin: 0,
@@ -159,7 +161,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                     <div style={{ marginTop: '20px', textAlign: 'right', paddingRight: '20px' }}>
                         <p
                             style={{
-                                fontSize: '22px',
+                                fontSize: isSquare ? '18px' : '22px',
                                 fontWeight: 'bold',
                                 color: '#000',
                                 margin: 0,
@@ -171,7 +173,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                         {title && (
                             <p
                                 style={{
-                                    fontSize: '18px',
+                                    fontSize: isSquare ? '14px' : '18px',
                                     color: '#666',
                                     margin: '5px 0 0 0',
                                     fontFamily: 'Noto Serif Bengali, serif',
@@ -188,16 +190,16 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
             <div
                 style={{
                     position: 'absolute',
-                    bottom: '60px',
+                    bottom: isSquare ? '50px' : '60px',
                     left: '0',
                     right: '0',
                     backgroundColor: '#6b3428',
-                    padding: '25px 30px',
+                    padding: isSquare ? '15px 20px' : '25px 30px',
                 }}
             >
                 <p
                     style={{
-                        fontSize: '28px',
+                        fontSize: isSquare ? '20px' : '28px',
                         fontWeight: '600',
                         color: '#fff',
                         margin: 0,
@@ -205,7 +207,7 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                         fontFamily: 'Noto Serif Bengali, serif',
                     }}
                 >
-                    {description || 'লক্ষ্মীপুরে ভোটের আগেই সিল উদ্ধারের পর জনমনে প্রবল শঙ্কা তৈরি হয়েছে যে, তাহলে কি তাদের হাতে ব্যালট পেপার বা ব্যালটের কোনো সফট কপিও আছে? এটার অর্থ হলো সফট কপিটা কোনো না কোনোভাবে আমরা পেয়ে যাব, যেটাকে পরে আমরা ইজিলি প্রিন্ট করে নিতে পারব। নাহলে ভোট দেওয়ার সিলটা আসলে কেন পাওয়া যাবে? এটা খুবই আ্যলামিং ব্যাপার হয়ে দাঁড়িয়েছে।'}
+                    {description || 'লক্ষ্মীপুরে ভোটের আগেই সিল উদ্ধারের পর জনমনে প্রবল শঙ্কা তৈরি হয়েছে যে, তাহলে কি তাদের হাতে ব্যালট পেপার বা ব্যালটের কোনো সফট কপিও আছে?'}
                 </p>
             </div>
 
@@ -214,13 +216,13 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, custo
                 style={{
                     position: 'absolute',
                     bottom: '15px',
-                    left: '30px',
-                    right: '30px',
+                    left: isSquare ? '20px' : '30px',
+                    right: isSquare ? '20px' : '30px',
                 }}
             >
                 <p
                     style={{
-                        fontSize: '16px',
+                        fontSize: isSquare ? '12px' : '16px',
                         color: '#666',
                         margin: 0,
                         fontFamily: 'Noto Serif Bengali, serif',

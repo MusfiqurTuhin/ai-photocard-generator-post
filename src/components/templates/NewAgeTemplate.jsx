@@ -1,12 +1,14 @@
 import React from 'react';
 
-const NewAgeTemplate = ({ headline, image, logo, description, source, date, customizations }) => {
+const NewAgeTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+    const isSquare = aspectRatio === '1:1';
+
     return (
         <div
             id="photocard"
             style={{
-                width: '820px',
-                height: '1080px',
+                width: '100%',
+                height: '100%',
                 position: 'relative',
                 fontFamily: 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
@@ -56,8 +58,8 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
                 <div
                     style={{
                         position: 'absolute',
-                        top: '30px',
-                        left: '35px',
+                        top: isSquare ? '20px' : '30px',
+                        left: isSquare ? '25px' : '35px',
                         backgroundColor: '#fff',
                         padding: '8px 12px',
                         borderRadius: '4px',
@@ -68,7 +70,7 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
                         alt="New Age Logo"
                         crossOrigin="anonymous"
                         style={{
-                            height: '45px',
+                            height: isSquare ? '35px' : '45px',
                             objectFit: 'contain',
                         }}
                     />
@@ -78,14 +80,14 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
                 <div
                     style={{
                         position: 'absolute',
-                        top: '40px',
-                        right: '35px',
+                        top: isSquare ? '25px' : '40px',
+                        right: isSquare ? '25px' : '35px',
                         textAlign: 'right',
                     }}
                 >
                     <p
                         style={{
-                            fontSize: '18px',
+                            fontSize: isSquare ? '14px' : '18px',
                             fontWeight: '600',
                             color: '#fff',
                             margin: '0 0 5px 0',
@@ -96,7 +98,7 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
                     </p>
                     <p
                         style={{
-                            fontSize: '16px',
+                            fontSize: isSquare ? '12px' : '16px',
                             fontWeight: '500',
                             color: '#e0e0e0',
                             margin: 0,
@@ -112,16 +114,16 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
             <div
                 style={{
                     position: 'absolute',
-                    bottom: '220px',
-                    left: '50px',
-                    right: '50px',
+                    bottom: isSquare ? '160px' : '220px',
+                    left: '40px',
+                    right: '40px',
                     zIndex: 3,
                     textAlign: 'center',
                 }}
             >
                 <h1
                     style={{
-                        fontSize: customizations?.fontSize || '60px',
+                        fontSize: customizations?.fontSize || (isSquare ? '46px' : '60px'),
                         fontWeight: 'bold',
                         color: '#fff',
                         margin: 0,
@@ -138,8 +140,8 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
             <div
                 style={{
                     position: 'absolute',
-                    bottom: '80px',
-                    right: '50px',
+                    bottom: isSquare ? '50px' : '80px',
+                    right: '40px',
                     zIndex: 3,
                 }}
             >
@@ -147,17 +149,17 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
                     style={{
                         border: '2px solid #fff',
                         borderRadius: '25px',
-                        padding: '10px 20px',
+                        padding: isSquare ? '6px 15px' : '10px 20px',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px',
                         backgroundColor: 'rgba(0,0,0,0.5)',
                     }}
                 >
-                    <span style={{ fontSize: '18px', color: '#fff' }}>🔗</span>
+                    <span style={{ fontSize: isSquare ? '15px' : '18px', color: '#fff' }}>🔗</span>
                     <span
                         style={{
-                            fontSize: '16px',
+                            fontSize: isSquare ? '12px' : '16px',
                             fontWeight: '600',
                             color: '#fff',
                             fontFamily: 'Montserrat, sans-serif',
@@ -165,7 +167,7 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, cust
                     >
                         www.newagebd.net
                     </span>
-                    <span style={{ fontSize: '18px', color: '#fff' }}>✕</span>
+                    <span style={{ fontSize: isSquare ? '15px' : '18px', color: '#fff' }}>✕</span>
                 </div>
             </div>
         </div>

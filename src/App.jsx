@@ -183,6 +183,7 @@ export default function App() {
           >
             <TemplateRenderer
               templateId={templateId}
+              aspectRatio={aspectRatio}
               bgImage={bgImage}
               logo={logo}
               cardData={cardData}
