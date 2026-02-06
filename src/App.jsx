@@ -170,6 +170,22 @@ export default function App() {
   };
 
   useEffect(() => {
+    const defaultLogos = [
+      "/logos/banglastream.png",
+      "/logos/dhakastream.svg",
+      "/logos/thepost.png", // Quote uses thepost
+      "/logos/prothomalo.svg",
+      "/logos/newage.png",
+      "/logos/tbs.svg"
+    ];
+
+    // Only update if current logo is empty or is one of the defaults
+    if (!logo || defaultLogos.includes(logo)) {
+      setLogo(defaultLogos[templateId]);
+    }
+  }, [templateId]);
+
+  useEffect(() => {
     // html2canvas is now imported locally via npm
   }, []);
 

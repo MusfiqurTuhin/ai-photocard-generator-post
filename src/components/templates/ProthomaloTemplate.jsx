@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProthomaloTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -70,22 +70,24 @@ const ProthomaloTemplate = ({ headline, image, logo, description, source, date, 
                     position: 'relative',
                 }}
             >
-                <div
-                    style={{
-                        marginBottom: isSquare ? '10px' : '20px',
-                    }}
-                >
-                    <img
-                        src={logo || "/logos/prothomalo.svg"}
-                        alt="Prothom Alo Logo"
-                        crossOrigin="anonymous"
+                {showLogo && (
+                    <div
                         style={{
-                            height: isSquare ? '50px' : '65px',
-                            width: isSquare ? '150px' : '200px',
-                            objectFit: 'contain',
+                            marginBottom: isSquare ? '10px' : '20px',
                         }}
-                    />
-                </div>
+                    >
+                        <img
+                            src={logo || "/logos/prothomalo.svg"}
+                            alt="Prothom Alo Logo"
+                            crossOrigin="anonymous"
+                            style={{
+                                height: isSquare ? '50px' : '65px',
+                                width: isSquare ? '150px' : '200px',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </div>
+                )}
 
                 {/* Column Label */}
                 <p

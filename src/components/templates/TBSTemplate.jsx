@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TBSTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+const TBSTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -30,23 +30,25 @@ const TBSTemplate = ({ headline, image, logo, description, source, date, aspectR
             {/* Top Section */}
             <div style={{ position: 'relative', zIndex: 2 }}>
                 {/* Logo - Top Left */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: isSquare ? '30px' : '40px',
-                        left: isSquare ? '30px' : '40px',
-                    }}
-                >
-                    <img
-                        src={logo || "/logos/tbs.svg"}
-                        alt="TBS Logo"
-                        crossOrigin="anonymous"
+                {showLogo && (
+                    <div
                         style={{
-                            height: isSquare ? '45px' : '60px',
-                            objectFit: 'contain',
+                            position: 'absolute',
+                            top: isSquare ? '30px' : '40px',
+                            left: isSquare ? '30px' : '40px',
                         }}
-                    />
-                </div>
+                    >
+                        <img
+                            src={logo || "/logos/tbs.svg"}
+                            alt="TBS Logo"
+                            crossOrigin="anonymous"
+                            style={{
+                                height: isSquare ? '45px' : '60px',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </div>
+                )}
 
                 {/* Date and Source - Top Right */}
                 <div

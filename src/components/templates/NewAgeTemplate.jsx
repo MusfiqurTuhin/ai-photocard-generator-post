@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewAgeTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -55,26 +55,28 @@ const NewAgeTemplate = ({ headline, image, logo, description, source, date, aspe
             {/* Header - Logo and Date */}
             <div style={{ position: 'relative', zIndex: 2 }}>
                 {/* Logo - Top Left */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: isSquare ? '20px' : '30px',
-                        left: isSquare ? '25px' : '35px',
-                        backgroundColor: '#fff',
-                        padding: '8px 12px',
-                        borderRadius: '4px',
-                    }}
-                >
-                    <img
-                        src={logo || "/logos/newage.png"}
-                        alt="New Age Logo"
-                        crossOrigin="anonymous"
+                {showLogo && (
+                    <div
                         style={{
-                            height: isSquare ? '35px' : '45px',
-                            objectFit: 'contain',
+                            position: 'absolute',
+                            top: isSquare ? '20px' : '30px',
+                            left: isSquare ? '25px' : '35px',
+                            backgroundColor: '#fff',
+                            padding: '8px 12px',
+                            borderRadius: '4px',
                         }}
-                    />
-                </div>
+                    >
+                        <img
+                            src={logo || "/logos/newage.png"}
+                            alt="New Age Logo"
+                            crossOrigin="anonymous"
+                            style={{
+                                height: isSquare ? '35px' : '45px',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </div>
+                )}
 
                 {/* Date and Website - Top Right */}
                 <div

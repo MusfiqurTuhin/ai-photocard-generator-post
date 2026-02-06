@@ -32,6 +32,7 @@ const TemplateRenderer = ({ templateId, aspectRatio, bgImage, logo, cardData, st
         headline: cardData.title,
         image: bgImage,
         logo: logo,
+        showLogo: cardData.showLogo,
         description: cardData.description,
         source: cardData.tag,
         date: cardData.date,

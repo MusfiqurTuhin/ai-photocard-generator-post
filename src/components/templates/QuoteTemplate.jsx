@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     // Split source into name and title if it contains '|'
@@ -45,24 +45,26 @@ const QuoteTemplate = ({ headline, image, logo, description, source, date, aspec
             </div>
 
             {/* Logo - Top Right */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: '20px',
-                    right: '25px',
-                    zIndex: 2,
-                }}
-            >
-                <img
-                    src={logo || "/logos/thepost.png"}
-                    alt="The Post Logo"
-                    crossOrigin="anonymous"
+            {showLogo && (
+                <div
                     style={{
-                        height: isSquare ? '45px' : '60px',
-                        objectFit: 'contain',
+                        position: 'absolute',
+                        top: '20px',
+                        right: '25px',
+                        zIndex: 2,
                     }}
-                />
-            </div>
+                >
+                    <img
+                        src={logo || "/logos/thepost.png"}
+                        alt="The Post Logo"
+                        crossOrigin="anonymous"
+                        style={{
+                            height: isSquare ? '45px' : '60px',
+                            objectFit: 'contain',
+                        }}
+                    />
+                </div>
+            )}
 
             {/* Main Content Area */}
             <div

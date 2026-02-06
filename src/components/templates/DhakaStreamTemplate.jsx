@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DhakaStreamTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+const DhakaStreamTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -31,24 +31,26 @@ const DhakaStreamTemplate = ({ headline, image, logo, description, source, date,
             {/* Top Section - Logo and Tag */}
             <div style={{ position: 'relative', zIndex: 2 }}>
                 {/* Logo - Top Left */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '35px',
-                        left: '35px',
-                    }}
-                >
-                    <img
-                        src={logo || "/logos/dhakastream.svg"}
-                        alt="Dhaka Stream Logo"
-                        crossOrigin="anonymous"
+                {showLogo && (
+                    <div
                         style={{
-                            height: '55px',
-                            objectFit: 'contain',
-                            filter: 'brightness(0) invert(1)', // Invert for visibility on dark background
+                            position: 'absolute',
+                            top: '35px',
+                            left: '35px',
                         }}
-                    />
-                </div>
+                    >
+                        <img
+                            src={logo || "/logos/dhakastream.svg"}
+                            alt="Dhaka Stream Logo"
+                            crossOrigin="anonymous"
+                            style={{
+                                height: '55px',
+                                objectFit: 'contain',
+                                filter: 'brightness(0) invert(1)', // Invert for visibility on dark background
+                            }}
+                        />
+                    </div>
+                )}
 
                 {/* Country Tag - Top Right */}
                 <div

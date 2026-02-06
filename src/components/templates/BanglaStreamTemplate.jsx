@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BanglaStreamTemplate = ({ headline, image, logo, description, source, date, aspectRatio, customizations }) => {
+const BanglaStreamTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -31,23 +31,25 @@ const BanglaStreamTemplate = ({ headline, image, logo, description, source, date
             {/* Top Section - Logo and Tag */}
             <div style={{ position: 'relative', zIndex: 2 }}>
                 {/* Logo - Top Left */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '40px',
-                        left: '40px',
-                    }}
-                >
-                    <img
-                        src={logo || "/logos/banglastream.png"}
-                        alt="Bangla Stream Logo"
-                        crossOrigin="anonymous"
+                {showLogo && (
+                    <div
                         style={{
-                            height: '55px',
-                            objectFit: 'contain',
+                            position: 'absolute',
+                            top: '40px',
+                            left: '40px',
                         }}
-                    />
-                </div>
+                    >
+                        <img
+                            src={logo || "/logos/banglastream.png"}
+                            alt="Bangla Stream Logo"
+                            crossOrigin="anonymous"
+                            style={{
+                                height: '55px',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </div>
+                )}
 
                 {/* News Tag - Top Right */}
                 <div
