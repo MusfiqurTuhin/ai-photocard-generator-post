@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
+const DhakaPapers5 = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     // Split source into name and title if it contains '|'
@@ -15,7 +15,7 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
                 position: 'relative',
                 fontFamily: 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
-                backgroundColor: '#f5f0e8',
+                backgroundColor: '#E8E5D5',
             }}
         >
             {/* Header - Social Media Handles */}
@@ -31,14 +31,11 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
                 }}
             >
                 {[
-                    { icon: '●', text: 'thepost.live' },
-                    { icon: '▶', text: '/at/thepost-live' },
-                    { icon: 'f', text: '/thepost360' },
+                    { icon: '●', text: 'www.dhakapapers.com' },
                 ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <span style={{ color: '#c13832', fontSize: isSquare ? '12px' : '16px', fontWeight: 'bold' }}>{item.icon}</span>
+                        <span style={{ color: '#DF1B21', fontSize: isSquare ? '12px' : '16px', fontWeight: 'bold' }}>{item.icon}</span>
                         <span style={{ color: '#999', fontSize: isSquare ? '11px' : '14px' }}>{item.text}</span>
-                        {i < 2 && <span style={{ color: '#ccc', margin: '0 5px' }}>●</span>}
                     </div>
                 ))}
                 <span style={{ color: '#999', fontSize: isSquare ? '11px' : '14px' }}>/{date || '06.02.26'}</span>
@@ -55,8 +52,8 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
                     }}
                 >
                     <img
-                        src={logo || "/logos/thepost.png"}
-                        alt="The Post Logo"
+                        src={logo || "/logos/dhakapapers.webp"}
+                        alt="Dhaka Papers Logo"
                         crossOrigin="anonymous"
                         style={{
                             height: isSquare ? '45px' : '60px',
@@ -108,7 +105,7 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
                             transform: 'translateX(-50%)',
                             width: '120px',
                             height: '120px',
-                            backgroundColor: '#f5f0e8',
+                            backgroundColor: '#E8E5D5',
                             borderRadius: '50%',
                         }}
                     />
@@ -140,7 +137,7 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
                     {/* Quote Box */}
                     <div
                         style={{
-                            backgroundColor: '#1a5c3a',
+                            backgroundColor: '#DF1B21',
                             padding: isSquare ? '15px 15px' : '25px 20px',
                             marginTop: '-20px',
                         }}
@@ -195,7 +192,7 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
                     bottom: isSquare ? '50px' : '60px',
                     left: '0',
                     right: '0',
-                    backgroundColor: '#6b3428',
+                    backgroundColor: '#1a1a1a',
                     padding: isSquare ? '15px 20px' : '25px 30px',
                 }}
             >
@@ -237,4 +234,4 @@ const QuoteTemplate = ({ headline, image, logo, showLogo, description, source, d
     );
 };
 
-export default QuoteTemplate;
+export default DhakaPapers5;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
+const DhakaPapers4 = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -12,7 +12,7 @@ const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, sour
                 position: 'relative',
                 fontFamily: customizations?.fontFamily || 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
-                backgroundColor: '#f5f0e8',
+                backgroundColor: '#E8E8E1',
                 display: 'flex',
                 flexDirection: 'column',
             }}
@@ -61,24 +61,24 @@ const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, sour
                 style={{
                     width: '100%',
                     flex: 1,
-                    backgroundColor: '#f5f0e8',
+                    backgroundColor: '#E8E8E1',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: isSquare ? '20px 40px' : '40px 50px',
+                    padding: isSquare ? '10px 40px' : '20px 50px',
                     position: 'relative',
                 }}
             >
                 {showLogo && (
                     <div
                         style={{
-                            marginBottom: isSquare ? '10px' : '20px',
+                            marginBottom: isSquare ? '5px' : '10px',
                         }}
                     >
                         <img
-                            src={logo || "/logos/prothomalo.svg"}
-                            alt="Prothom Alo Logo"
+                            src={logo || "/logos/dhakapapers.webp"}
+                            alt="Dhaka Papers Logo"
                             crossOrigin="anonymous"
                             style={{
                                 height: isSquare ? '50px' : '65px',
@@ -106,7 +106,7 @@ const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, sour
                     style={{
                         fontSize: customizations?.fontSize || (isSquare ? '36px' : '42px'),
                         fontWeight: customizations?.fontWeight || 'bold',
-                        color: '#d32f2f',
+                        color: '#DF1B21',
                         margin: 0,
                         lineHeight: 1.45,
                         textAlign: 'center',
@@ -154,7 +154,7 @@ const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, sour
                                 fontFamily: 'sans-serif',
                             }}
                         >
-                            prothomalo.com
+                            www.dhakapapers.com
                         </span>
                     </div>
                 </div>
@@ -163,4 +163,4 @@ const ProthomaloTemplate = ({ headline, image, logo, showLogo, description, sour
     );
 };
 
-export default ProthomaloTemplate;
+export default DhakaPapers4;

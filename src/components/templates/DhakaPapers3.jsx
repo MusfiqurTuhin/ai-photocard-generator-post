@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
+const DhakaPapers3 = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -12,7 +12,7 @@ const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, 
                 position: 'relative',
                 fontFamily: 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
-                backgroundColor: '#2d2d2d',
+                backgroundColor: '#000000',
             }}
         >
             {/* Background Image with Overlay */}
@@ -46,7 +46,7 @@ const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, 
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            background: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%)',
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
                         }}
                     />
                 </div>
@@ -67,8 +67,8 @@ const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, 
                         }}
                     >
                         <img
-                            src={logo || "/logos/newage.png"}
-                            alt="New Age Logo"
+                            src={logo || "/logos/dhakapapers.webp"}
+                            alt="Dhaka Papers Logo"
                             crossOrigin="anonymous"
                             style={{
                                 height: isSquare ? '35px' : '45px',
@@ -107,7 +107,7 @@ const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, 
                             fontFamily: 'Montserrat, sans-serif',
                         }}
                     >
-                        www.newagebd.net
+                        www.dhakapapers.com
                     </p>
                 </div>
             </div>
@@ -167,7 +167,7 @@ const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, 
                             fontFamily: 'Montserrat, sans-serif',
                         }}
                     >
-                        www.newagebd.net
+                        www.dhakapapers.com
                     </span>
                     <span style={{ fontSize: isSquare ? '15px' : '18px', color: '#fff' }}>✕</span>
                 </div>
@@ -176,4 +176,4 @@ const NewAgeTemplate = ({ headline, image, logo, showLogo, description, source, 
     );
 };
 
-export default NewAgeTemplate;
+export default DhakaPapers3;

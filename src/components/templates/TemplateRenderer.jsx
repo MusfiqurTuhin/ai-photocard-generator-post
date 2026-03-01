@@ -1,20 +1,21 @@
 import React from 'react';
-import BanglaStreamTemplate from './BanglaStreamTemplate';
-import DhakaStreamTemplate from './DhakaStreamTemplate';
-import QuoteTemplate from './QuoteTemplate';
-import ProthomaloTemplate from './ProthomaloTemplate';
-import NewAgeTemplate from './NewAgeTemplate';
-import TBSTemplate from './TBSTemplate';
+import DhakaPapers1 from './DhakaPapers1';
+import DhakaPapers2 from './DhakaPapers2';
+import DhakaPapers3 from './DhakaPapers3';
+import DhakaPapers4 from './DhakaPapers4';
+import DhakaPapers5 from './DhakaPapers5';
+import DhakaPapers6 from './DhakaPapers6';
+import DhakaPapers7 from './DhakaPapers7';
 
 const TemplateRenderer = ({ templateId, aspectRatio, bgImage, logo, cardData, styles, language, ...rest }) => {
-    // ... items ...
     const templates = [
-        BanglaStreamTemplate,  // 0
-        DhakaStreamTemplate,   // 1
-        QuoteTemplate,         // 2
-        ProthomaloTemplate,    // 3
-        NewAgeTemplate,        // 4
-        TBSTemplate,         // 5
+        DhakaPapers1, // 0
+        DhakaPapers2, // 1
+        DhakaPapers3, // 2
+        DhakaPapers4, // 3
+        DhakaPapers5, // 4
+        DhakaPapers6, // 5
+        DhakaPapers7, // 6
     ];
 
     const TemplateComponent = templates[templateId];

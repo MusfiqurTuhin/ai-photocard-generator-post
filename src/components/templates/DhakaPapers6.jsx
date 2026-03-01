@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TBSTemplate = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
+const DhakaPapers6 = ({ headline, image, logo, showLogo, description, source, date, aspectRatio, customizations }) => {
     const isSquare = aspectRatio === '1:1';
 
     return (
@@ -12,7 +12,7 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
                 position: 'relative',
                 fontFamily: customizations?.fontFamily || 'Noto Serif Bengali, serif',
                 overflow: 'hidden',
-                backgroundColor: '#000',
+                backgroundColor: '#000000',
             }}
         >
             {/* Background with subtle texture */}
@@ -23,7 +23,7 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%)',
+                    background: 'linear-gradient(to bottom, #000000 0%, #1a1a1a 100%)',
                 }}
             />
 
@@ -39,8 +39,8 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
                         }}
                     >
                         <img
-                            src={logo || "/logos/tbs.svg"}
-                            alt="TBS Logo"
+                            src={logo || "/logos/dhakapapers.webp"}
+                            alt="Dhaka Papers Logo"
                             crossOrigin="anonymous"
                             style={{
                                 height: isSquare ? '45px' : '60px',
@@ -78,7 +78,7 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
                             fontFamily: 'Noto Serif Bengali, serif',
                         }}
                     >
-                        {source || 'সূত্র: দ্য বিজনেস স্ট্যান্ডার্ড'}
+                        {source || 'সূত্র: ঢাকা পেপারস'}
                     </p>
                 </div>
             </div>
@@ -125,7 +125,7 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
                     style={{
                         width: '100%',
                         height: '100%',
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath fill='%23333' d='M0 400h800v200H0z'/%3E%3C/g%3E%3C/svg%3E")`,
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath fill='%23111' d='M0 400h800v200H0z'/%3E%3C/g%3E%3C/svg%3E")`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
@@ -174,7 +174,7 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
                     fontFamily: 'sans-serif',
                 }}
             >
-                www.tbsnews.net
+                www.dhakapapers.com
             </div>
 
             {/* Action Badge - Bottom Right */}
@@ -188,7 +188,7 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
             >
                 <div
                     style={{
-                        backgroundColor: '#ed1c24', // TBS Red
+                        backgroundColor: '#DF1B21', // Dhaka Papers Red
                         padding: isSquare ? '6px 15px' : '10px 25px',
                         borderRadius: '4px',
                     }}
@@ -209,4 +209,4 @@ const TBSTemplate = ({ headline, image, logo, showLogo, description, source, dat
     );
 };
 
-export default TBSTemplate;
+export default DhakaPapers6;

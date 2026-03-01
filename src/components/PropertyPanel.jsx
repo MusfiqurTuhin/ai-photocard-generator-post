@@ -28,8 +28,8 @@ export default function PropertyPanel({
     updateExtraElement,
     removeExtraElement
 }) {
-    const templates = ['Bangla Stream', 'Dhaka Stream', 'Quote', 'Prothomalo', 'New Age', 'TBS'];
-    const thumbNames = ['bangla_stream', 'dhaka_stream', 'quote', 'prothomalo', 'newage', 'tbs'];
+    const templates = ['Dhaka Papers 1', 'Dhaka Papers 2', 'Dhaka Papers 3', 'Dhaka Papers 4', 'Dhaka Papers 5', 'Dhaka Papers 6', 'Dhaka Papers 7'];
+    const thumbNames = ['bangla_stream', 'dhaka_stream', 'newage', 'prothomalo', 'quote', 'tbs', 'prothomalo'];
 
     const TabContent = () => {
         switch (activeTab) {
@@ -41,7 +41,7 @@ export default function PropertyPanel({
                             <p className="text-[10px] text-gray-500">Select a professional design framework</p>
                         </header>
                         <div className="grid grid-cols-1 gap-4">
-                            {[0, 1, 2, 3, 4, 5].map((id) => (
+                            {[0, 1, 2, 3, 4, 5, 6].map((id) => (
                                 <button
                                     key={id}
                                     onClick={() => setTemplateId(id)}

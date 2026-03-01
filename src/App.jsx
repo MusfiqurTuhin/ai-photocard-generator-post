@@ -32,13 +32,13 @@ export default function App() {
     title: 'ভারতের কংগ্রেসেও পরিবারতন্ত্র আছে, তারেক রহমান কেন নয়: মির্জা ফখরুল',
     description: 'আল জাজিরাকে দেওয়া এক সাক্ষাৎকারে বিএনপির মহাসচিব মির্জা ফখরুল ইসলাম আলমগীর বলেন, তারেক রহমান দলের নেতৃত্ব দিতে যোগ্য এবং পরিবারতন্ত্র দক্ষিণ এশিয়ার রাজনীতিতে এক সাধারণ দৃশ্য।',
     date: new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'long', year: 'numeric' }),
-    website: 'www.banglastream.net',
+    website: 'www.dhakapapers.com',
     tag: 'আল জাজিরা',
     bgColor: '#1a1a1a',
     showLogo: true,
     showTag: true,
     showFooter: true,
-    logoText: 'বাংলা স্ট্রিম',
+    logoText: 'ঢাকা পেপারস',
     extraElements: []
   });
 
@@ -98,8 +98,6 @@ export default function App() {
     }
   };
 
-
-
   const handleImageUpload = (e, type) => {
     const file = e.target.files[0];
     if (file) {
@@ -120,7 +118,6 @@ export default function App() {
       const width = 800;
       const height = isSquare ? 800 : 1000;
 
-      // The layout now ensures cardRef is always at its native size with no transform
       const dataUrl = await domToPng(cardRef.current, {
         width: width,
         height: height,
@@ -136,11 +133,6 @@ export default function App() {
       console.error('Export failed:', err);
       alert("Export failed. Please try again.");
     }
-  };
-
-  const copyCaption = () => {
-    navigator.clipboard.writeText(generatedCaption);
-    alert("Caption copied!");
   };
 
   const addExtraElement = (type) => {
@@ -171,23 +163,14 @@ export default function App() {
 
   useEffect(() => {
     const defaultLogos = [
-      "/logos/banglastream.png",
-      "/logos/dhakastream.svg",
-      "/logos/thepost.png", // Quote uses thepost
-      "/logos/prothomalo.svg",
-      "/logos/newage.png",
-      "/logos/tbs.svg"
+      "/logos/dhakapapers.webp",
+      "/logos/dhakapapers.webp"
     ];
 
-    // Only update if current logo is empty or is one of the defaults
     if (!logo || defaultLogos.includes(logo)) {
-      setLogo(defaultLogos[templateId]);
+      setLogo("/logos/dhakapapers.webp");
     }
   }, [templateId]);
-
-  useEffect(() => {
-    // html2canvas is now imported locally via npm
-  }, []);
 
   return (
     <div className="h-screen w-screen flex flex-col bg-editor-bg overflow-hidden">
